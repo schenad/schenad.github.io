@@ -1,0 +1,29 @@
+SwZap English site cleanup report
+Generated: 2026-11-04 17:20:19
+Source: C:\Users\schen\Desktop\en-main
+Destination: C:\Users\schen\Desktop\en-cleaned
+
+HTML files scanned: 44
+HTML files changed: 44
+
+Deleted obsolete root files:
+  - CNAME-delete
+  - access.html
+  - chives.html
+  - ex.html
+  - htaccess.html
+  - nks.html
+  - rectory.html
+  - links.html
+
+Main changes:
+  - Site name: SwZap's Sheet Music -> SwZap's Music Notes
+  - Home -> /en/
+  - Directory -> /en/directory/
+  - Archives -> /en/archives/
+  - Collection of Links -> https://bio.link/swzap
+  - Chinese home -> /
+  - English static assets are isolated under /en/ (CSS/JS/images/favicon)
+  - Bilibili profile updated to space.bilibili.com/6044180
+
+Legacy-reference scan: PASS (no known obsolete references found)
