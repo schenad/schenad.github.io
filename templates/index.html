@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="SwZap" name="author"/>
+<meta content="SwZap的音乐笔记：动画音乐、钢琴改编、扒谱、演奏与个人音乐笔记。" name="description"/>
+<meta content="ca-pub-4874286534645510" name="google-adsense-account"/>
+<title>SwZap的音乐笔记</title>
+<link href="https://schenad.github.io/" rel="canonical"/>
+<link href="css/site-v7.css" rel="stylesheet"/>
+</head>
+<body>
+<nav aria-label="主导航" class="site-nav"><div class="nav-inner">
+<a class="site-brand" href="index.html">SwZap的音乐笔记</a>
+<ul class="nav-links"><li><a class="active" href="index.html">主页</a></li><li><a href="links.html">其他平台</a></li></ul>
+</div></nav>
+<main class="page-shell">
+<details class="filter-panel" id="filter-panel">
+<summary class="filter-summary"><span class="filter-summary-title">标签筛选</span><span class="filter-summary-status" id="filter-summary-status">未筛选 · {{ items|length }} 篇</span></summary>
+<div class="filter-body">
+<div class="filter-toolbar"><span>选择任意一个标签即可浏览相关作品；再次点击当前标签可取消。</span><button hidden id="clear-filter" type="button">清除筛选 ×</button></div>
+<div id="filter-groups"></div>
+</div>
+</details>
+<section aria-label="音乐笔记"><div class="card-grid" id="work-grid">
+{% for item in items %}
+<a class="work-card" data-artist="{{ item.data_artist }}" data-category="{{ item.data_category }}" data-composer="{{ item.data_composer }}" data-franchise="{{ item.data_franchise }}" data-instrument="{{ item.data_instrument }}" href="{{ item.href }}">
+<div class="card-thumb"><img alt="{{ item.title }} 视频缩略图" loading="lazy" src="{{ item.thumbnail_url }}"/></div>
+<div class="card-body"><div class="card-tags">{% for tag in item.card_tags %}<span class="card-tag">{{ tag }}</span>{% endfor %}</div><h2>{{ item.title }}</h2><div class="read-more">阅读全文 →</div></div></a>
+{% endfor %}
+</div><div class="empty-state" hidden id="empty-state">没有符合当前筛选条件的作品。</div></section>
+<div class="bottom-links">
+<a href="https://space.bilibili.com/6044180/upload/video" rel="noopener" target="_blank">Bilibili ↗</a>
+<a href="https://www.youtube.com/c/SwZap" rel="noopener" target="_blank">YouTube ↗</a>
+<a href="https://sheet.host/user/swzap" rel="noopener" target="_blank">Sheethost ↗</a>
+</div>
+</main><footer class="site-footer">© SwZap &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a></footer><script src="js/site-v7.js"></script></body></html>

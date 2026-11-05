@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="SwZap" name="author"/><meta content="{{ item.description }}" name="description"/><meta content="ca-pub-4874286534645510" name="google-adsense-account"/><title>{{ item.title }} | SwZap的音乐笔记</title><link href="../../css/site-v7.css" rel="stylesheet"/></head>
+<body>
+<nav aria-label="主导航" class="site-nav"><div class="nav-inner"><a class="site-brand" href="../../index.html">SwZap的音乐笔记</a><ul class="nav-links"><li><a href="../../index.html">主页</a></li><li><a href="../../links.html">其他平台</a></li></ul></div></nav>
+<main class="work-page">
+<header class="work-header" data-artist="{{ item.artist|join_pipe }}" data-category="{{ item.category }}" data-composer="{{ item.composer|join_pipe }}" data-franchise="{{ item.franchise|join_pipe }}" data-instrument="{{ item.instrument|join_pipe }}"><div class="work-eyebrow">Music Note · SwZap</div><h1 class="work-title">{{ item.title }}</h1>{% if item.subtitle %}<div class="work-subtitle">{{ item.subtitle }}</div>{% endif %}<div class="work-tags">{% for tag in item.card_tags %}<span class="work-tag">{{ tag }}</span>{% endfor %}</div></header>
+<div class="work-layout"><article class="article-card">
+{% if item.youtube.id %}<div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/{{ item.youtube.id }}" title="{{ item.title }}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+<p class="video-caption"><a href="https://www.youtube.com/watch?v={{ item.youtube.id }}" rel="noopener" target="_blank">在 YouTube 打开 ↗</a>{% for video in item.bilibili %} &nbsp;·&nbsp; <a href="https://www.bilibili.com/video/{{ video.id }}/" rel="noopener" target="_blank">{{ video.label or '在 Bilibili 打开' }} ↗</a>{% endfor %}</p>{% elif item.bilibili %}<p class="video-caption">{% for video in item.bilibili %}<a href="https://www.bilibili.com/video/{{ video.id }}/" rel="noopener" target="_blank">{{ video.label or '在 Bilibili 打开' }} ↗</a>{% if not loop.last %} &nbsp;·&nbsp; {% endif %}{% endfor %}</p>{% endif %}
+{{ item.body_html | safe }}
+<nav class="work-nav"><a href="../../index.html">← 返回主页</a></nav></article>
+{% if item.info or item.sheet_music or item.related_links %}<aside class="side-column">
+{% if item.info %}<section class="side-card"><h3>作品信息</h3><ul class="meta-list">{% for label, value in item.info.items() %}<li><strong>{{ label }}：</strong>{{ value }}</li>{% endfor %}</ul></section>{% endif %}
+{% if item.sheet_music.url %}<section class="side-card"><h3>乐谱 / Sheet Music</h3>{% if item.sheet_music.description %}<p>{{ item.sheet_music.description }}</p>{% endif %}<a class="button-link" href="{{ item.sheet_music.url }}" rel="noopener" target="_blank">{{ item.sheet_music.label or 'View on Sheethost' }} ↗</a></section>{% endif %}
+{% if item.related_links %}<section class="side-card"><h3>相关链接</h3>{% for link in item.related_links %}<p><a href="{{ link.url }}" rel="noopener" target="_blank">{{ link.label }} ↗</a></p>{% endfor %}</section>{% endif %}
+</aside>{% endif %}</div>
+</main><footer class="site-footer">© SwZap &nbsp;·&nbsp; <a href="../../privacy.html">Privacy Policy</a></footer>
+</body></html>

@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="SwZap" name="author"/><meta content="{{ item.description }}" name="description"/><meta content="ca-pub-4874286534645510" name="google-adsense-account"/><title>{{ item.title }} | SwZap的音乐笔记</title><link href="../../css/site-v7.css" rel="stylesheet"/></head>
+<body>
+<nav aria-label="主导航" class="site-nav"><div class="nav-inner"><a class="site-brand" href="../../index.html">SwZap的音乐笔记</a><ul class="nav-links"><li><a href="../../index.html">主页</a></li><li><a href="../../links.html">其他平台</a></li></ul></div></nav>
+<main class="work-page">
+<header class="work-header" data-artist="{{ item.artist|join_pipe }}" data-category="{{ item.category }}" data-composer="{{ item.composer|join_pipe }}" data-franchise="{{ item.franchise|join_pipe }}" data-instrument="{{ item.instrument|join_pipe }}"><div class="work-eyebrow">Music Note · SwZap</div><h1 class="work-title">{{ item.title }}</h1>{% if item.subtitle %}<div class="work-subtitle">{{ item.subtitle }}</div>{% endif %}<div class="work-tags">{% for tag in item.card_tags %}<span class="work-tag">{{ tag }}</span>{% endfor %}</div></header>
+<div style="max-width:900px;margin:0 auto"><article class="article-card">{{ item.body_html | safe }}<nav class="work-nav"><a href="../../index.html">← 返回主页</a></nav></article></div>
+</main><footer class="site-footer">© SwZap &nbsp;·&nbsp; <a href="../../privacy.html">Privacy Policy</a></footer>
+</body></html>
